@@ -28,6 +28,10 @@
 		<servlet-class>com.servlets.SecondServlet</servlet-class>
 	</servlet>
 	
+	<servlet>
+		<servlet-name>third</servlet-name>
+		<servlet-class>com.practice.ThirdServlet</servlet-class>
+	</servlet>
 	
 	<!-- Mapping -->
 	<servlet-mapping>
@@ -38,5 +42,10 @@
 	<servlet-mapping>
 		<servlet-name>second</servlet-name>
 		<url-pattern>/second</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>third</servlet-name>
+		<url-pattern>/third</url-pattern>
 	</servlet-mapping>
 </web-app>
