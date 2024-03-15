@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<style>
+	.container{
+		background-color:yellow;
+		width: 70%;
+		border: 1px solid black;
+		border-radius:20px;
+		margin: auto;
+		padding: 20px;
+		font-size: 20px;
+	}
+	#myform table tr td input{
+		font-size: 20px;
+	}
+	h1{
+		color: brown;
+	}
+	button {
+		color: yellow;
+		background-color:brown;
+		border-radius:5px; 
+	}	
+</style>
+<body>
+	<div class="container">
+		<h1 align="center"><strong>Login Form</strong></h1>
+		<form id="myform"action="LoginServlet" method="post">
+			<table>
+				<tr>
+					<td>Enter your Name:- </td>
+					<td><input type="text" name="user_name" placeholder="Enter here" required="required">
+				</tr>
+				<tr>
+					<td>Enter your PassWord:- </td>
+					<td><input type="password" name="password" placeholder="Enter here" required="required">
+				</tr>
+				
+				<tr>
+					<td>
+						<button type="submit">Register</button> 
+						<button type="reset">Reset</button>
+					<td>
+				</tr>		
+			</table>		
+		</form>
+	</div>
+
+</body>
+</html>
