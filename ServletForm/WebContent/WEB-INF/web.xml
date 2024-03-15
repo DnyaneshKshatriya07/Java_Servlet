@@ -20,7 +20,16 @@
 		<servlet-name>success</servlet-name>
 		<servlet-class>com.practice1.success</servlet-class>
 	</servlet>
-
+	
+	<servlet>
+		<servlet-name>login</servlet-name>
+		<servlet-class>com.practice1.LoginServlet</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>info</servlet-name>
+		<servlet-class>com.practice1.UserInfo</servlet-class>
+	</servlet>
 	
 	<!-- Mapping -->
 	<servlet-mapping>
@@ -33,5 +42,14 @@
 		<url-pattern>/success</url-pattern>
 	</servlet-mapping>
 
+	<servlet-mapping>
+		<servlet-name>login</servlet-name>
+		<url-pattern>/LoginServlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>info</servlet-name>
+		<url-pattern>/UserInfo</url-pattern>
+	</servlet-mapping>
 
 </web-app>
