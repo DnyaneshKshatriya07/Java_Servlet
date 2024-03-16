@@ -2,11 +2,20 @@ package com.practice1;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import javax.*;
 
+import javax.security.auth.message.callback.PrivateKeyCallback.Request;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import java.sql.Connection;
+
 
 public class RegisterServlet extends HttpServlet{
 
@@ -25,12 +34,34 @@ public class RegisterServlet extends HttpServlet{
 		
 		String cond=req.getParameter("condition");
 		if(cond!=null){
-			if (cond.equals("checked")) {
-				out.println("<h2>Name:- "+ name +"</h2>");
-				out.println("<h2>Password:- "+ password +"</h2>");
-				out.println("<h2>email:- "+ email +"</h2>");
-				out.println("<h2>gender:- "+ gender +"</h2>");
-				out.println("<h2>course:- "+ course +"</h2>");
+			if (cond.equals("checked")) {			
+
+		        try
+		        {				        	
+		        	Class.forName("com.mysql.jdbc.Driver"); 
+							
+					Connection con=(Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/servlet","root","root");
+					PreparedStatement ps=((java.sql.Connection) con).prepareStatement("INSERT INTO registration VALUES(?,?,?,?,?)");
+		        		
+		            ps.setString(1, name);
+		            ps.setString(2, password);
+		            ps.setString(3, email);
+		            ps.setString(4, gender);
+		            ps.setString(5, course);
+		            int count = ps.executeUpdate();
+		            if (count == 1) {
+		            	RequestDispatcher rd=req.getRequestDispatcher("success");
+						rd.forward(req, resp);
+		            } else {
+		                out.println("<h2>Record not Registered Sucessfully");
+		            }
+		        } catch (SQLException se) {
+		            se.printStackTrace();
+		            out.println("<h1>" + se.getMessage() + "</h2>");
+		        } catch (Exception e) {
+		            e.printStackTrace();
+		            out.println("<h1>" + e.getMessage() + "</h2>");
+		        }				
 			}
 			else{
 				out.println("<h2>You have not accept terms and condtion..</h2>");
@@ -38,6 +69,10 @@ public class RegisterServlet extends HttpServlet{
 		}
 		else{
 			out.println("<h2>You have not accept terms and condtion..</h2>");
+			
+			RequestDispatcher rd=req.getRequestDispatcher("signup.html");
+			
+			rd.include(req, resp);
 		}
 	}
 }
