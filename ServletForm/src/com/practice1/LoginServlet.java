@@ -51,7 +51,7 @@ public class LoginServlet extends HttpServlet {
             ps.setString(1, name);
             ps.setString(2, password);
             rs = ps.executeQuery();
-            isValid = rs.next(); // If any row found, set isValid to true
+            isValid = rs.next();
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         } finally {
