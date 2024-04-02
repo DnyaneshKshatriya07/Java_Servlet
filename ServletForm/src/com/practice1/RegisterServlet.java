@@ -40,7 +40,7 @@ public class RegisterServlet extends HttpServlet{
 		        {				        	
 		        	Class.forName("com.mysql.jdbc.Driver"); 
 							
-					Connection con=(Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/servlet","root","root");
+					Connection con=(Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/servlet","root","Dnyanesh@7123");
 					PreparedStatement ps=((java.sql.Connection) con).prepareStatement("INSERT INTO registration VALUES(?,?,?,?,?)");
 		        		
 		            ps.setString(1, name);

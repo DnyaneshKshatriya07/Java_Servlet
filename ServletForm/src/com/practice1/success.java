@@ -16,6 +16,7 @@ public class success extends HttpServlet{
 		resp.setContentType("text/html");
 		PrintWriter out=resp.getWriter();
 		out.println("<h2>Login Successful...</h2>");
+		out.println("<h2>This is using SignUp</h2>");
 	}
 	
 	
